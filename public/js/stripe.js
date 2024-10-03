@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
           sessionId: session.data.session.id,
         });
       } catch (err) {
-        console.log('Error while booking the tour:', err);
+        // console.log('Error while booking the tour:', err);
         showAlert('error', err);
       }
     });

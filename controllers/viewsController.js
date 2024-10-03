@@ -60,14 +60,13 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
 });
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
-  console.log('Hello from updateUserData');
   // Only update the fields that are provided in the request body
   // const updates = {};
   // if (req.body.name) updates.name = req.body.name;
   // if (req.body.email) updates.email = req.body.email;
 
   // Update user data
-  console.log(req.body);
+  // console.log(req.body);
   const updatedUser = await User.findByIdAndUpdate(
     req.user._id,
     { name: req.body.name, email: req.body.email },
@@ -76,7 +75,7 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
       runValidators: true, // Run schema validators on update
     },
   );
-  console.log(updatedUser.name, updatedUser.email);
+  // console.log(updatedUser.name, updatedUser.email);
   // Render the account page with the updated user
   res.status(200).render('account', {
     title: 'Your account',
