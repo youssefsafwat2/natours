@@ -28,3 +28,10 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
+
+process.on('SIGALRM', () => {
+  console.log('SIGALRM RECEIVED. Shutting down...');
+  server.close(() => {
+    console.log('Process terminated!');
+  });
+});
